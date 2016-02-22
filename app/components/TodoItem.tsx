@@ -6,12 +6,29 @@ interface Props {
   todo: Todo;
 }
 
-export default class TodoItemComponent extends React.Component<Props, {}> {
+interface State {
+  completed: boolean;
+}
+
+export default class TodoItemComponent extends React.Component<Props, State> {
+
+  componentWillMount() {
+    this.setState({
+      completed: this.props.todo.isCompleted()
+    });
+  }
+
+  handleChange(event: React.FormEvent) {
+    this.setState({
+      completed: (event as any).target.checked
+    });
+  }
+
   render(): React.ReactElement<{}> {
     let { description } = this.props.todo;
     return (
       <li>
-        <input type="checkbox" defaultChecked={this.props.todo.isCompleted()} /> {description}
+        <input type="checkbox" checked={this.state.completed} onChange={this.handleChange.bind(this)} /> {description}
       </li>
     );
   }

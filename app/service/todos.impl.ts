@@ -1,6 +1,7 @@
 import { TodosService } from './todos';
-import { TodoList } from '../model/todo';
+import { Todo, TodoList } from '../model/todo';
 import { TodoImpl, TodoListImpl } from '../model/todo.impl';
+import { Observable } from 'rxjs/Rx';
 
 let list:TodoListImpl = new TodoListImpl();
 let todo1:TodoImpl = new TodoImpl();
@@ -15,7 +16,7 @@ todo2.markAsCompleted();
 list.addTodo(todo2);
 
 export class TodosServiceImpl implements TodosService {
-  list(): TodoList {
-    return list;
+  list(): Observable<Todo> {
+    return Observable.of(todo1, todo2);
   }
 }

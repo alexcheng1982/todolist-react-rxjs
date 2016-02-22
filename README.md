@@ -23,3 +23,24 @@ My goal is very clear. I just want to get a dev server running with hot loading,
 After webpack is configured, I moved on to create the basic UI. This includes defining the basic domain model, a simple in-memory service layer and the React components.
 
 See tag `0.1` for the code.
+
+## RxJS
+
+Here I'm using [RxJS 5.0](https://github.com/ReactiveX/RxJS). The basic idea is to use a `Observable<Todo>` as the data source. The state of React component is a `TodoList` object. The observer of `Observable<Todo>` updates `TodoList`.
+
+```typescript
+componentWillMount(): void {
+  this.props.todoList.subscribe(
+    (todo) => {
+      this.state.todoList.addTodo(todo);
+      this.setState(this.state);
+    }
+  );
+}
+```
+
+### Issues and solutions
+
+Use `import { Observable } from 'rxjs/Rx';` to import RxJS `Observable`, see [SO question](http://stackoverflow.com/questions/34397162/angular2-rxjs-getting-observable-1-observable-fromevent-is-not-a-function-erro).
+
+See tag `0.2` for the code.

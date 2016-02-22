@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TodoList } from '../model/todo';
+import { Todo, TodoList } from '../model/todo';
 import TodoItemComponent from './TodoItem';
 
 interface Props {
