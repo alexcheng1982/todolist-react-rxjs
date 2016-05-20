@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm run typings install",
+    "postinstall": "typings install",
     "start": "node server.js"
   },
   "repository": {
@@ -34,7 +34,6 @@
   "dependencies": {
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "rx-react": "^0.3.0",
-    "rxjs": "^5.0.0-beta.2"
+    "rxjs": "^5.0.0-beta.7"
   }
 }

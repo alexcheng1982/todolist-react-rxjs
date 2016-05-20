@@ -1,12 +1,7 @@
 {
   "ambientDependencies": {
-    "react": "github:DefinitelyTyped/DefinitelyTyped/react/react.d.ts#f407264835650f5f38d4bb2c515a79e7a835916b",
-    "react-addons-create-fragment": "github:DefinitelyTyped/DefinitelyTyped/react/react-addons-create-fragment.d.ts#77b2f7e8d49399d29f751a066ae13da17f46facc",
-    "react-addons-css-transition-group": "github:DefinitelyTyped/DefinitelyTyped/react/react-addons-css-transition-group.d.ts#097e6616f04a7ab2a507ecce2afd36e63ca2a36e",
-    "react-addons-linked-state-mixin": "github:DefinitelyTyped/DefinitelyTyped/react/react-addons-linked-state-mixin.d.ts#ca5bfe76d2d9bf6852cbc712d9f3e0047c93486e",
-    "react-addons-pure-render-mixin": "github:DefinitelyTyped/DefinitelyTyped/react/react-addons-pure-render-mixin.d.ts#ca5bfe76d2d9bf6852cbc712d9f3e0047c93486e",
-    "react-addons-update": "github:DefinitelyTyped/DefinitelyTyped/react/react-addons-update.d.ts#ca5bfe76d2d9bf6852cbc712d9f3e0047c93486e",
-    "react-dom": "github:DefinitelyTyped/DefinitelyTyped/react/react-dom.d.ts#ca5bfe76d2d9bf6852cbc712d9f3e0047c93486e",
-    "react-global": "github:DefinitelyTyped/DefinitelyTyped/react/react-global-0.13.3.d.ts#49f853d9dc71a5647175d7bfd62aa7030e92b39f"
+    "es6-promise": "registry:dt/es6-promise#0.0.0+20160423074304",
+    "react": "registry:dt/react#0.14.0+20160423065914",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040"
   }
 }
