@@ -6,4 +6,4 @@ export default function createState(reducer$, initialState$ = Rx.Observable.of({
     .scan((state, reducer: (state: any) => any) => reducer(state))
     .publishReplay(1)
     .refCount();
-}
+};

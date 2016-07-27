@@ -1,7 +1,7 @@
-import * as Rx from 'rxjs';
+import * as Rx from "rxjs";
 
-import createState from './state/createState';
-import TodoReducer$ from './reducers/TodoReducer';
+import createState from "./state/createState";
+import TodoReducer$ from "./reducers/TodoReducer";
 
 const reducer$ = Rx.Observable.merge(
   TodoReducer$

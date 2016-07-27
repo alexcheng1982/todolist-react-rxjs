@@ -1,6 +1,6 @@
-import * as Rx from 'rxjs';
+import * as Rx from "rxjs";
 
-import TodoActions from '../actions/TodoActions';
+import TodoActions from "../actions/TodoActions";
 
 export default Rx.Observable.merge(
   TodoActions.add$.map(value => {

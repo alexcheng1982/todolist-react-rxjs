@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Observable } from 'rxjs/Rx';
-import TodoListComponent from '../components/TodoList';
-import { Todo, TodoList } from '../model/todo';
-import { TodoImpl, TodoListImpl } from '../model/todo.impl';
-import { TodosServiceImpl } from '../service/todos.impl';
+import * as React from "react";
+import { Observable } from "rxjs/Rx";
+import TodoListComponent from "../components/TodoList";
+import { Todo, TodoList } from "../model/todo";
+import { TodoImpl, TodoListImpl } from "../model/todo.impl";
+import { TodosServiceImpl } from "../service/todos.impl";
 
 interface AppProps {
   todoList: Observable<Todo>;
