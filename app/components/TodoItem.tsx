@@ -1,3 +1,5 @@
+/// <reference types="react" />
+
 import * as React from 'react';
 import { Todo } from '../model/todo';
 
@@ -18,7 +20,7 @@ export default class TodoItemComponent extends React.Component<Props, State> {
     });
   }
 
-  handleChange(event: React.FormEvent) {
+  handleChange(event: React.FormEvent<any>) {
     this.setState({
       completed: (event as any).target.checked
     });
