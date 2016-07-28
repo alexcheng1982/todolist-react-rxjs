@@ -1,18 +1,17 @@
-/// <reference types="react" />
-
 import * as React from 'react';
-import { Todo } from '../model/todo';
+import { ITodo } from '../model/todo';
+import Checkbox from 'material-ui/Checkbox';
 
-interface Props {
+interface IProps {
   key: string;
-  todo: Todo;
+  todo: ITodo;
 }
 
-interface State {
+interface IState {
   completed: boolean;
 }
 
-export default class TodoItemComponent extends React.Component<Props, State> {
+export default class TodoItemComponent extends React.Component<IProps, IState> {
 
   componentWillMount() {
     this.setState({
@@ -20,7 +19,7 @@ export default class TodoItemComponent extends React.Component<Props, State> {
     });
   }
 
-  handleChange(event: React.FormEvent<any>) {
+  handleChange(event: React.FormEvent) {
     this.setState({
       completed: (event as any).target.checked
     });
@@ -29,9 +28,11 @@ export default class TodoItemComponent extends React.Component<Props, State> {
   render(): React.ReactElement<{}> {
     let { description } = this.props.todo;
     return (
-      <li>
-        <input type="checkbox" checked={this.state.completed} onChange={this.handleChange.bind(this)} /> {description}
-      </li>
+      <Checkbox
+        label={ description }
+        checked={this.state.completed}
+        onCheck={this.handleChange.bind(this)}
+      />
     );
   }
 }

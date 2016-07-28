@@ -1,5 +1,3 @@
-/// <reference types="react" />
-
 import * as React from "react";
 
 function connect(state$, selector = (state) => state) {

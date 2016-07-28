@@ -1,12 +1,15 @@
-import * as React from "react";
-import state$ from "../state";
-import bindAction from "../state/bindAction";
-import connect from "../state/connect";
-import TodoActions from "../actions/TodoActions";
+import * as React from 'react';
+import state$ from '../state';
+import bindAction from '../state/bindAction';
+import connect from '../state/connect';
+import TodoActions from '../actions/TodoActions';
+import { ITodo } from '../model/todo';
+import TodoListComponent from './TodoList';
+import TodoInput from './TodoInput';
 
 interface IProps {
   add: (title: string) => void;
-  todos: any[];
+  todos: ITodo[];
 }
 
 interface IState {
@@ -14,26 +17,21 @@ interface IState {
 }
 
 export class TodoComponent extends React.Component<IProps, IState> {
-  constructor() {
-    super();
-  }
-
-  add() {
-    this.props.add(this.state.title);
+  add(description: string) {
+    this.props.add(description);
   }
 
   handleTitleChange(event: any) {
     this.setState({
-      title: event.target.value
+      title: event.target.value,
     });
   }
 
   render() {
     return (
       <div>
-        <h1>Todos: { this.props.todos.map(todo => todo.title).join(",") }</h1>
-        <input type="text" onChange={this.handleTitleChange.bind(this)} />
-        <button onClick={this.add.bind(this)}>Add</button>
+        <TodoListComponent todos={ this.props.todos } />
+        <TodoInput add={this.add.bind(this)}/>
       </div>
     );
   }

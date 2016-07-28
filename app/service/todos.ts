@@ -1,6 +1,6 @@
-import { Todo, TodoList } from '../model/todo';
+import { ITodo, ITodoList } from '../model/todo';
 import { Observable } from 'rxjs/Rx';
 
 export interface TodosService {
-  list(): Observable<Todo>;
+  list(): Observable<ITodo>;
 }

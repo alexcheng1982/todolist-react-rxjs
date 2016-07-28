@@ -1,14 +1,15 @@
-/// <reference path="../node_modules/rxjs/Rx.d.ts" />
-/// <reference types="react" />
-/// <reference types="react-dom" />
-/// <reference types="es6-promise" />
-
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import * as injectTapEventPlugin from 'react-tap-event-plugin';
 
-import TodoApp from "./containers/TodoApp";
+injectTapEventPlugin();
+
+import TodoApp from './containers/TodoApp';
 
 ReactDOM.render(
-  <TodoApp/>,
-  document.getElementById("app")
+  <MuiThemeProvider>
+    <TodoApp/>
+  </MuiThemeProvider>,
+  document.getElementById('app')
 );

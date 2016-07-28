@@ -1,10 +1,17 @@
-import { Todo, TodoList } from './todo';
+import * as uuid from 'node-uuid';
+import { ITodo } from './todo';
 
-export class TodoImpl implements Todo {
+
+export class TodoImpl implements ITodo {
   id: string;
   description: string;
   private completed: boolean = false;
   private lastUpdatedAt: number = new Date().getTime();
+
+  constructor(description: string) {
+    this.id = uuid.v4();
+    this.description = description;
+  }
 
   isCompleted() {
     return this.completed;
@@ -26,19 +33,5 @@ export class TodoImpl implements Todo {
 
   private updated() {
     this.lastUpdatedAt = new Date().getTime()
-  }
-}
-
-export class TodoListImpl implements TodoList {
-  private todos:Array<Todo> = [];
-  getTodos() {
-    return this.todos;
-  }
-  addTodo(todo: Todo) {
-    this.todos.push(todo);
-    return this;
-  }
-  removeTodo(todoId: string) {
-    return this;
   }
 }
