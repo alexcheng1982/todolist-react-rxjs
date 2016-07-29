@@ -1,4 +1,3 @@
-/// <reference path="globals/es6-promise/index.d.ts" />
 /// <reference path="globals/material-ui/index.d.ts" />
 /// <reference path="globals/node-uuid/index.d.ts" />
 /// <reference path="globals/node-uuid/node-uuid-base/index.d.ts" />

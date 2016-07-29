@@ -10,6 +10,7 @@ export default class TodoApp extends React.Component<any, any> {
       <div>
         <AppBar
           title="Todo App"
+          showMenuIconButton={false}
         />
         <Todo/>
       </div>

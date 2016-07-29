@@ -1,7 +1,8 @@
 import * as React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
+import * as CSSModules from 'react-css-modules';
+import * as style from './input.scss';
 
 interface IProps {
   add: (title: string) => void;
@@ -11,7 +12,7 @@ interface IState {
   title: string;
 }
 
-export default class TodoInput extends React.Component<IProps, IState> {
+class TodoInput extends React.Component<IProps, IState> {
   constructor() {
     super();
     this.state = {
@@ -20,10 +21,12 @@ export default class TodoInput extends React.Component<IProps, IState> {
   }
 
   add() {
-    this.props.add(this.state.title);
-    this.setState({
-      title: ''
-    });
+    if (this.state.title != '') {
+      this.props.add(this.state.title);
+      this.setState({
+        title: ''
+      });
+    }
   }
 
   handleTitleChange(event: any) {
@@ -34,12 +37,12 @@ export default class TodoInput extends React.Component<IProps, IState> {
   
   render() {
     return (
-      <Toolbar>
-        <ToolbarGroup firstChild={true} lastChild={true}>
-          <TextField hintText="What to do?" fullWidth={true} value={this.state.title} onChange={this.handleTitleChange.bind(this)}/>
-          <RaisedButton label="Add" primary={true} onClick={this.add.bind(this)} />
-        </ToolbarGroup>
-      </Toolbar>
+      <div className={style.container}>
+        <TextField className={style.input} hintText="What to do?" fullWidth={true} value={this.state.title} onChange={this.handleTitleChange.bind(this)}/>
+        <FlatButton label="Add" primary={true} onClick={this.add.bind(this)} />
+      </div>
     );
   }
 };
+
+export default CSSModules(TodoInput, style);

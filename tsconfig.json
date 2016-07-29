@@ -3,10 +3,12 @@
     "target": "es5",
     "module": "commonjs",
     "sourceMap": true,
-    "jsx": "react"
+    "jsx": "react",
+    "lib": ["dom", "es5", "es2015.promise"]
   },
   "compileOnSave": false,
   "files": [
-    "typings/index.d.ts"
+    "typings/index.d.ts",
+    "app/declarations.d.ts"
   ]
 }
