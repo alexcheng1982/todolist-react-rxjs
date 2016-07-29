@@ -10,5 +10,8 @@
   "files": [
     "typings/index.d.ts",
     "app/declarations.d.ts"
+  ],
+  "exclude": [
+    "node_modules"    
   ]
 }
