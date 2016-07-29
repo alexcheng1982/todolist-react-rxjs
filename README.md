@@ -44,3 +44,14 @@ componentWillMount(): void {
 Use `import { Observable } from 'rxjs/Rx';` to import RxJS `Observable`, see [SO question](http://stackoverflow.com/questions/34397162/angular2-rxjs-getting-observable-1-observable-fromevent-is-not-a-function-erro).
 
 See tag `0.2` for the code.
+
+## Complete implementation
+
+I updated this sample app to apply Flux practices. Now the app includes following parts:
+
+* Flux data flow
+* [Material UI](http://www.material-ui.com/)
+* [react-css-modules](https://github.com/gajus/react-css-modules) and SCSS based styles
+* `localStorage` based persistence
+
+See tag `0.3` for the code.
