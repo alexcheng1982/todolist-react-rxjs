@@ -9,6 +9,7 @@ import TodoInput from './TodoInput';
 
 interface IProps {
   add: (title: string) => void;
+  updateStatus: (todo: any) => void;
   todos: ITodo[];
 }
 
@@ -30,7 +31,7 @@ export class TodoComponent extends React.Component<IProps, IState> {
   render() {
     return (
       <div>
-        <TodoListComponent todos={ this.props.todos } />
+        <TodoListComponent todos={ this.props.todos } updateStatus={ this.props.updateStatus.bind(this) } />
         <TodoInput add={this.add.bind(this)}/>
       </div>
     );
@@ -40,4 +41,5 @@ export class TodoComponent extends React.Component<IProps, IState> {
 export default connect(state$, state => ({
   todos: state.todos,
   add: bindAction(TodoActions.add$),
+  updateStatus: bindAction(TodoActions.updateStatus$)
 }))(TodoComponent);

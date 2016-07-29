@@ -5,6 +5,7 @@ import Checkbox from 'material-ui/Checkbox';
 interface IProps {
   key: string;
   todo: ITodo;
+  updateStatus: (todo: any) => void;
 }
 
 interface IState {
@@ -15,13 +16,18 @@ export default class TodoItemComponent extends React.Component<IProps, IState> {
 
   componentWillMount() {
     this.setState({
-      completed: this.props.todo.isCompleted()
+      completed: this.props.todo.completed
     });
   }
 
   handleChange(event: React.FormEvent) {
+    let completed = (event as any).target.checked;
     this.setState({
-      completed: (event as any).target.checked
+      completed: completed
+    });
+    this.props.updateStatus({
+      id: this.props.todo.id,
+      completed: completed
     });
   }
 
@@ -30,7 +36,8 @@ export default class TodoItemComponent extends React.Component<IProps, IState> {
     return (
       <Checkbox
         label={ description }
-        checked={this.state.completed}
+        defaultChecked={this.state.completed}
+        value={this.state.completed}
         onCheck={this.handleChange.bind(this)}
       />
     );
