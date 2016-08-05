@@ -1,23 +1,30 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var root = path.resolve(__dirname, 'app');
-var nodeModulesPath = path.join(__dirname, 'node_modules');
+const contextPath = path.resolve(__dirname, '..');
+const assetsPath = path.resolve(__dirname, '../dist');
+const root = path.resolve(contextPath, 'app');
+const nodeModulesPath = path.resolve(contextPath, 'node_modules');
+const host = (process.env.HOST || 'localhost');
+const port = (+process.env.PORT + 1) || 3001;
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
+const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools'));
 
 module.exports = {
   entry: {
     app: [
-      'webpack-dev-server/client?http://0.0.0.0:2992',
+      'webpack-hot-middleware/client?path=http://' + host + ':' + port + '/__webpack_hmr',
       'webpack/hot/only-dev-server',
       path.join(root, 'main.tsx')
     ]
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'dist'),
-    publicPath: 'http://localhost:2992/assets/'
+    path: assetsPath,
+    publicPath: 'http://' + host + ':' + port + '/assets/'
   },
   resolve: {
     root: root,
@@ -45,6 +52,9 @@ module.exports = {
   devtool: 'eval',
   plugins: [
     new ExtractTextPlugin('style.css', { allChunks: true }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.IgnorePlugin(/webpack-stats\.json$/),
+    webpackIsomorphicToolsPlugin.development()
   ]
 };
