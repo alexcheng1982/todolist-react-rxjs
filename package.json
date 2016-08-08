@@ -13,7 +13,7 @@
   },
   "betterScripts": {
     "start-dev": {
-      "command": "ts-node ./bin/server.js",
+      "command": "ts-node -D ./bin/server.js",
       "env": {
         "NODE_PATH": "./app",
         "NODE_ENV": "development",
@@ -75,6 +75,7 @@
     "react-css-modules": "^3.7.9",
     "react-dom": "^15.2.1",
     "react-flexbox-grid": "^0.10.2",
+    "react-router": "^2.6.1",
     "react-tap-event-plugin": "^1.0.0",
     "rxjs": "^5.0.0-beta.10",
     "uuid": "^2.0.2",
