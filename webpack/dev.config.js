@@ -18,7 +18,7 @@ module.exports = {
     app: [
       'webpack-hot-middleware/client?path=http://' + host + ':' + port + '/__webpack_hmr',
       'webpack/hot/only-dev-server',
-      path.join(root, 'main.tsx')
+      path.join(root, 'client', 'app.tsx')
     ]
   },
   output: {
