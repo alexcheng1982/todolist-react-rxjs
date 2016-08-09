@@ -55,3 +55,9 @@ I updated this sample app to apply Flux practices. Now the app includes followin
 * `localStorage` based persistence
 
 See tag `0.3` for the code.
+
+## Server-side rendering
+
+Server-side rendering is almost working except that `react-css-modules` doesn't work.
+
+See tag `0.4` for the code.
