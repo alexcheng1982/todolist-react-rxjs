@@ -14,6 +14,7 @@ export default class Html extends React.Component<PropTypes, {}> {
       <html>
         <head>
           <title>App</title>
+          <link rel="stylesheet" href={this.props.assets.styles.app}/>
         </head>
         <body>
           <div id="app" dangerouslySetInnerHTML={{__html: content}}/>

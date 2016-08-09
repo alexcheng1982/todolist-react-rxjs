@@ -2,8 +2,6 @@
   "javascript": {
     "app": "http://localhost:3001/assets/app.js"
   },
-  "styles": {
-    "app": "http://localhost:3001/assets/style.css"
-  },
+  "styles": {},
   "assets": {}
 }

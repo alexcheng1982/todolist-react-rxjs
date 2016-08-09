@@ -1,5 +1,15 @@
 const storageKey = 'todo-list';
 
+let storage = {};
+let localStorage = {
+  getItem: (key: string) => {
+    return storage[key];
+  },
+  setItem: (key: string, value: any) => {
+    storage[key] = value;
+  }
+};
+
 export default {
   load: () => {
     let data = localStorage.getItem(storageKey);

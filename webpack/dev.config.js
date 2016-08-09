@@ -41,7 +41,7 @@ module.exports = {
         include: [
           root
         ],
-        loaders: ['react-hot', 'ts-loader']
+        loaders: ['react-hot', 'awesome-typescript-loader']
       }, {
         test: /(\.scss|\.css)$/,
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap')

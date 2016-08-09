@@ -1,8 +1,8 @@
 import * as React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import * as CSSModules from 'react-css-modules';
-import * as style from './input.scss';
+// import * as CSSModules from 'react-css-modules';
+// import * as style from './input.scss';
 
 interface IProps {
   add: (title: string) => void;
@@ -37,12 +37,13 @@ class TodoInput extends React.Component<IProps, IState> {
   
   render() {
     return (
-      <div className={style.container}>
-        <TextField className={style.input} hintText="What to do?" fullWidth={true} value={this.state.title} onChange={this.handleTitleChange.bind(this)}/>
+      <div>
+        <TextField hintText="What to do?" fullWidth={true} value={this.state.title} onChange={this.handleTitleChange.bind(this)}/>
         <FlatButton label="Add" primary={true} onClick={this.add.bind(this)} />
       </div>
     );
   }
 };
 
-export default CSSModules(TodoInput, style);
+// export default CSSModules(TodoInput, style);
+export default TodoInput;

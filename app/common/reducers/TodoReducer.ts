@@ -1,5 +1,4 @@
 import * as Rx from 'rxjs';
-// import * as uuid from 'node-uuid';
 import * as find from 'lodash.find';
 import TodoActions from '../actions/TodoActions';
 
@@ -7,7 +6,7 @@ export default Rx.Observable.merge(
   TodoActions.add$.map(value => {
     return (state: any) => {
       state.todos.push({
-        id: 'id',
+        id: `todo-${new Date().getTime()}`,
         description: value
       });
       return state;
